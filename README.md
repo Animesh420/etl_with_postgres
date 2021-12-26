@@ -3,7 +3,7 @@
 * [Problem setup](#problem-setup)
 * [Understanding the problem](#understanding-the-problem)
 * [Solution Walkthrough](#solution-walkthrough)
-* [Best practices and troubleshooting](#common-bugs)
+* [Best practices and troubleshooting](#best-practices)
 
 
 ## Problem Setup
@@ -99,7 +99,7 @@ file
   fact table and use same methodology in previous steps to extract and transform data before loading it.
   * Once all the data is loaded, use test.ipynb as to verify if the data exists in the tables
 
-## Best practices and trouble shooting
+## Best practices
 
 ### Best practices
 * Make sure the local file directory to store data for postgres in a [local system setup approach](#db-setup-on-local-system)
