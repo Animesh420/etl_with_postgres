@@ -10,8 +10,8 @@
 ## Problem Setup
 
 ### Installing docker
-*[Docker overview](https://docs.docker.com/get-started/overview/)
-*[Docker compose overview](https://docs.docker.com/compose/)
+* [Docker overview](https://docs.docker.com/get-started/overview/)
+* [Docker compose overview](https://docs.docker.com/compose/)
 * [Docker Installation for all platforms](https://docs.docker.com/get-docker/)
 * [Quickstart with Docker](https://docs.docker.com/get-started/)
 
@@ -38,8 +38,8 @@
   but this is the most concise way that worked for me. For more [information](https://hub.docker.com/_/postgres)
   * Our initial configuration to postgres is what is used inside create_tables to connect to postgres and then create a new DB sparkify
   * **IMPORTANT**, in the docker-compose.yaml, under volumes one needs to specify a path map
-    * <PATH ON LOCAL SYSTEM>: /var/lib/postgresql/data
-    * If you have to restart the container for any reason, make sure that this <PATH ON LOCAL SYSTEM> is empty
+    * **PATH ON LOCAL SYSTEM** : /var/lib/postgresql/data
+    * If you have to restart the container for any reason, make sure that this **PATH ON LOCAL SYSTEM** is empty
     otherwise a booting postgres container does not take configuration from database.env correctly
   * With this setup you have the ability to run all the files locally and your local environment setup is complete
 
