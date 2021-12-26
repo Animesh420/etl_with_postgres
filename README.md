@@ -2,8 +2,7 @@
 
 * [Problem setup](#problem-setup)
 * [Understanding the problem](#understanding-the-problem)
-* [Designing the Solution](#solutoin-design)
-* [Final Solution Walkthrough](#final-solution-walkthrough)
+* [Solution Walkthrough](#solution-walkthrough)
 * [Common bugs and troubleshooting](#common-bugs)
 
 
@@ -67,3 +66,31 @@
 * [What are Fact and Dimension Tables ?](https://docs.microsoft.com/en-us/power-bi/guidance/star-schema)
 * The problem requires one to create an ETL workflow for both song and log data to populate dimension table
 * Once all the dimension tables are populated, log data information is used to coherently build the fact table
+
+
+## Solution Walkthrough
+
+### Input files
+  - create_tables.py: Used to drop database tables and recreate them
+  - sql_queries.py: Used to write CRUD queries for postgres database
+  - etl.py: Used to run the pipeline
+  - etl.ipynb: Used to run small snippets of ETL as a precursor to etl.py
+  - test.ipynb: Used to unit test database table changes
+
+### Key points in solution
+  * One needs to **make sure to correctly populate create table and delete table statements** in the sql_queries.py
+file
+  * These CRUD statements are used in the create_tables.py file to create and drop tables in database
+  * Once the sql_queries file is correctly created (with right data type and key constraints for each column)
+  check by running the create_tables.py file if the creation and deletion of tables/database works perfectly.
+  * Once the create_tables.py is operational move to etl.ipynb and implement the etl steps one by one
+  * Helpful pandas link:
+    * Following links help one to get started with pandas code in the repository, but for more information use stackoverflow
+    * [User guid pandas](https://pandas.pydata.org/pandas-docs/version/0.23.3/generated/pandas.DataFrame.html)
+    * [10 minutes pandas](https://pandas.pydata.org/pandas-docs/stable/user_guide/10min.html)
+    * [What is loc in pandas](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.loc.html?highlight=loc#pandas.DataFrame.loc)
+    * [Guide to selecting data by index and columns](https://pandas.pydata.org/pandas-docs/version/0.23.3/indexing.html)
+    * [reading json with pandas](https://pandas.pydata.org/pandas-docs/version/0.23.3/generated/pandas.read_json.html)
+    * [renaming columns in pandas](https://pandas.pydata.org/pandas-docs/version/0.23.3/generated/pandas.DataFrame.rename.html)
+  * Based on schema of input data files, use pandas to generate insertable data for SQL tables
+
