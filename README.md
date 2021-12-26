@@ -9,17 +9,17 @@
 
 ## Problem Setup
 
-###Installing docker
+### Installing docker
 *[Docker overview](https://docs.docker.com/get-started/overview/)
 *[Docker compose overview](https://docs.docker.com/compose/)
 * [Docker Installation for all platforms](https://docs.docker.com/get-docker/)
 * [Quickstart with Docker](https://docs.docker.com/get-started/)
 
-###Installing Pycharm and Anaconda
+### Installing Pycharm and Anaconda
 * [Pycharm Community Edition](https://www.jetbrains.com/pycharm/download/)
 * [Anaconda Installation](https://docs.anaconda.com/anaconda/install/)
 
-###Project specific setup using Anaconda and Pycharm
+### Project specific setup using Anaconda and Pycharm
 * Clone this repository, watch [tutorial](https://blog.jetbrains.com/idea/2020/10/clone-a-project-from-github/)
 * [Recommended Anaconda setup](https://docs.conda.io/projects/conda/en/latest/user-guide/getting-started.html)
 * [Anaconda setup with Pycharm for a project](https://docs.anaconda.com/anaconda/user-guide/tasks/pycharm/)
@@ -27,7 +27,7 @@
   * Create a new conda environment with Python 3.6
   * Install all the python packages using `pip install -r requirements.txt`
 
-###DB Setup on personal system
+### DB Setup on personal system
 * If you are not using udacity environment to do the assignment and instead want to setup a local working environment then
   * Make sure you can run `docker` and `docker-compose` from your command line (cmd in Windows and bash in Ubuntu/Mac)
   * Best way to ensure this is using docker desktop (installation links [above](#installing-docker))
@@ -44,7 +44,7 @@
   * With this setup you have the ability to run all the files locally and your local environment setup is complete
 
 
-###[OPTIONAL] Jupyter setup
+### [OPTIONAL] Jupyter setup
 * Jupyter support is currently absent from pycharm community edition
 * If you want to still have support for jupyter, [refer](https://stackoverflow.com/questions/55788675/-2019-1-ce-no-option-to-create-edit-jupyter-notebook-ipynb-files)
 
