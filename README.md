@@ -28,3 +28,17 @@
 * Jupyter support is currently absent from pycharm community edition
 * If you want to still have support for jupyter, [refer](https://stackoverflow.com/questions/55788675/-2019-1-ce-no-option-to-create-edit-jupyter-notebook-ipynb-files)
 
+## Understanding the problem
+* [What is an ETL (Extract Transform Load) pipeline ?](https://www.snowflake.com/guides/etl-pipeline)
+* For this project we have to build a pipeline using postgres (on Udacity or on local machine)
+* This pipeline focuses on two types of data
+  * Song data: 
+    * Located under /data/song_data
+    * Data is stored as json and is used to create two dimension tables (Songs and Artists)
+  * Log data:
+    * Located under /data/log_data
+    * Data is stored as "per line json" and is used to create two dimension tables (User and Time)
+    * It also creates one fact table (Songplays)
+* [What are Fact and Dimension Tables ?](https://docs.microsoft.com/en-us/power-bi/guidance/star-schema)
+* The problem requires one to create an ETL workflow for both song and log data to populate dimension table
+* Once all the dimension tables are populated, log data information is used to coherently build the fact table
