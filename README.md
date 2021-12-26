@@ -18,7 +18,8 @@
 
 **Project specific setup using Anaconda and Pycharm**
 * Clone this repository, watch [tutorial](https://blog.jetbrains.com/idea/2020/10/clone-a-project-from-github/)
-* [Setting up Pycharm with Anaconda](https://docs.conda.io/projects/conda/en/latest/user-guide/getting-started.html)
+* [Recommended Anaconda setup](https://docs.conda.io/projects/conda/en/latest/user-guide/getting-started.html)
+* [Anaconda setup with Pycharm for a project](https://docs.anaconda.com/anaconda/user-guide/tasks/pycharm/)
 * Project specific recommendations:
   * Create a new conda environment with Python 3.6
   * Install all the python packages using `pip install -r requirements.txt`
