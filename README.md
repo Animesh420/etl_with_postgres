@@ -10,6 +10,7 @@
 ## Problem Setup
 
 > Installing docker
+1. [Detailed steps] (#https://docs.docker.com/get-docker/)
 
 > Installing Pycharm and Anaconda
 
