@@ -3,7 +3,7 @@
 * [Problem setup](#problem-setup)
 * [Understanding the problem](#understanding-the-problem)
 * [Solution Walkthrough](#solution-walkthrough)
-* [Common bugs and troubleshooting](#common-bugs)
+* [Best practices and troubleshooting](#common-bugs)
 
 
 ## Problem Setup
@@ -92,5 +92,25 @@ file
     * [Guide to selecting data by index and columns](https://pandas.pydata.org/pandas-docs/version/0.23.3/indexing.html)
     * [reading json with pandas](https://pandas.pydata.org/pandas-docs/version/0.23.3/generated/pandas.read_json.html)
     * [renaming columns in pandas](https://pandas.pydata.org/pandas-docs/version/0.23.3/generated/pandas.DataFrame.rename.html)
-  * Based on schema of input data files, use pandas to generate insertable data for SQL tables
+    * [pandas timestamp](https://pandas.pydata.org/pandas-docs/version/0.23.3/generated/pandas.Timestamp.html)
+  * Based on schema of input data files, use pandas to generate insertable data for SQL tables and leverage code from sql_queries.py
+  to fill data in respective SQL tables like songs, time, artists etc.
+  * Once all dimension tables are filled (songs, time, artists, user) then implement the logic to populate the
+  fact table and use same methodology in previous steps to extract and transform data before loading it.
+  * Once all the data is loaded, use test.ipynb as to verify if the data exists in the tables
 
+## Best practices and trouble shooting
+
+### Best practices
+* Make sure the local file directory to store data for postgres in a [local system setup approach](#db-setup-on-local-system)
+is always cleared in case the container is restarted
+* The json files in log or song data should not be formatted, because pandas is expecting them to be a single line json
+* Check if a tables exists prior to dropping it
+* Check if a table does not exist prior to creating it
+* If names of tables are specified in double quotes in create and delete statements, there is no collision with the internal postgres tables with same name
+like user
+* If you are using the etl.ipynb or test.ipynb file to incrementally implement the solution make sure that the kernel is
+restarted prior to running create_tables or etl script
+* Learn about Postgres data types support in db [here](https://www.techonthenet.com/postgresql/datatypes.php)
+* Learn about ON CONFLICT clause from [here](https://www.postgresql.org/docs/9.5/sql-insert.html#SQL-ON-CONFLICT)
+    
