@@ -86,7 +86,7 @@ file
   * Once the create_tables.py is operational move to etl.ipynb and implement the etl steps one by one
   * Helpful pandas link:
     * Following links help one to get started with pandas code in the repository, but for more information use stackoverflow
-    * [User guid pandas](https://pandas.pydata.org/pandas-docs/version/0.23.3/generated/pandas.DataFrame.html)
+    * [User guide pandas](https://pandas.pydata.org/pandas-docs/version/0.23.3/generated/pandas.DataFrame.html)
     * [10 minutes pandas](https://pandas.pydata.org/pandas-docs/stable/user_guide/10min.html)
     * [What is loc in pandas](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.loc.html?highlight=loc#pandas.DataFrame.loc)
     * [Guide to selecting data by index and columns](https://pandas.pydata.org/pandas-docs/version/0.23.3/indexing.html)
