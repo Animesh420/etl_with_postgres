@@ -6,8 +6,8 @@ from sql_queries import *
 
 
 def process_song_file(cur, filepath):
-    '''
-    Inserts records into Songs and Artists table from a song data file
+    """
+    Inserts records into Songs and Artists (Dimension) table from a song data file
 
     Args:
         cur: psycopg2 cursor object
@@ -17,7 +17,7 @@ def process_song_file(cur, filepath):
     Raises:
         SQL Psycopg errors
 
-    '''
+    """
     # open song file
     df = pd.read_json(filepath, lines=True)
 
@@ -29,14 +29,19 @@ def process_song_file(cur, filepath):
     cur.execute(song_table_insert, song_data)
 
     # insert artist record
-    artist_columns = ["artist_id", "artist_name", "artist_location", "artist_latitude", "artist_longitude"]
+    artist_columns = [
+        "artist_id",
+        "artist_name",
+        "artist_location",
+        "artist_latitude",
+        "artist_longitude"]
     artist_data = df.loc[0, artist_columns].values.tolist()
     cur.execute(artist_table_insert, artist_data)
 
 
 def process_log_file(cur, filepath):
-    '''
-    Inserts records into Users, Time and Songplay table from a song data file
+    """
+    Inserts records into Users, Time (Dimension) and Songplay (Facts) table from a song data file
 
     Args:
         cur: psycopg2 cursor object
@@ -46,7 +51,7 @@ def process_log_file(cur, filepath):
     Raises:
         SQL Psycopg errors
 
-    '''
+    """
     # open log file
     df = pd.read_json(filepath, lines=True)
 
@@ -91,7 +96,6 @@ def process_log_file(cur, filepath):
         if results:
             songid, artistid = results
         else:
-            songid, artistid = None, None
             continue
 
         # insert songplay record
@@ -107,6 +111,22 @@ def process_log_file(cur, filepath):
 
 
 def process_data(cur, conn, filepath, func):
+    """
+     Processes data from a given data directory (song_data or log_data) using specific function "func"
+
+    Args:
+        cur: psycopg2 cursor object
+        conn: psycopg2 connection object
+        filepath: Root folder location for log files
+        func: Function specific to handle log files, song_data or log_data
+    Returns:
+       None
+    Raises:
+        SQL Psycopg errors
+
+
+    """
+
     # get all files matching extension from directory
     all_files = []
     for root, dirs, files in os.walk(filepath):
@@ -125,9 +145,12 @@ def process_data(cur, conn, filepath, func):
         print('{}/{} files processed.'.format(i, num_files))
 
 
-
 def main():
-    conn = psycopg2.connect("host=127.0.0.1 dbname=sparkifydb user=student password=student")
+    """
+    Main orchestrator function
+    """
+    conn = psycopg2.connect(
+        "host=127.0.0.1 dbname=sparkifydb user=student password=student")
     cur = conn.cursor()
 
     process_data(cur, conn, filepath='data/song_data', func=process_song_file)
