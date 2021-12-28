@@ -33,7 +33,7 @@ location text not null,
 user_agent text
 )
 """)
-̐
+
 user_table_create = (prompt_create.format(USERS) + """(
 user_id int not null unique primary key,
 first_name text not null,
